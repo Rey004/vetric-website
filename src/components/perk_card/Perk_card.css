@@ -1,0 +1,38 @@
+.perk-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.perk-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+.perk-icon{
+    background: linear-gradient(to bottom, rgba(129, 129, 129, 0.145) 40%, rgba(76, 145, 76, 0.539));
+    padding: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+.perk-icon img {
+    width: 20px;
+}
+
+.perk-title {
+    font-family: blanc;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.perk-description {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.4rem;
+}
+
