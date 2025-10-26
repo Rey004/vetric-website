@@ -47,6 +47,23 @@
   color:var(--muted-strong);
 }
 
+/* active state when section is in view */
+.navlinks a.active{
+  color: var(--muted-strong);
+  position: relative;
+}
+
+.navlinks a.active::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-green);
+  bottom: -6px;
+  border-radius: 2px;
+}
+
 .accessibility{
   display:flex;
   align-items:center;
@@ -131,17 +148,41 @@
   background:transparent;
   border:none;
   color:var(--muted);
-  padding:8px;
+  padding:8px 10px;
   border-radius:8px;
   cursor:pointer;
   margin-left: 6px;
-  align-self: flex-end;
+  /* align vertically with other controls */
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
 }
+
+/* mobile theme toggle (visible next to burger on smaller screens) */
+.mobile-theme-btn{
+  display:none;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.03);
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-right:8px;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+}
+
+.mobile-theme-btn svg{ width:18px; height:18px; color:var(--muted); }
 
 .mobile-overlay{
   position:fixed;
   inset:0;
-  background: rgba(0,0,0,0.55);
+  background: var(--overlay-backdrop, rgba(0,0,0,0.55));
   backdrop-filter: blur(6px) saturate(120%);
   display:flex;
   align-items:center;
@@ -154,7 +195,7 @@
   /* cover full screen for a sleek overlay */
   width:100%;
   height:100%;
-  background: var(--nav-bg);
+  background: var(--overlay-inner-bg, var(--bg));
   border-radius:0;
   padding:28px 20px;
   box-shadow: none;
@@ -164,6 +205,7 @@
   justify-content:center;
   align-items:center;
   transition: transform 180ms ease, opacity 180ms ease;
+  color: var(--overlay-text, var(--text));
 }
 
 .close-btn{
@@ -172,22 +214,26 @@
   top:14px;
   background:transparent;
   border:none;
-  color:var(--muted);
+  color:var(--overlay-muted, var(--muted));
   padding:8px;
   border-radius:8px;
   cursor:pointer;
 }
 
 .overlay-links{
-  display:flex;
+  color:var(--overlay-text, var(--muted-strong));
   flex-direction:column;
   align-items:center;
   gap:18px;
   margin-top:6px;
+
+.overlay-links a.active{
+  color: var(--accent-green);
+}
 }
 
 .overlay-links a{
-  color:var(--muted-strong);
+  color:var(--overlay-text, var(--muted-strong));
   text-decoration:none;
   font-size:20px;
   font-weight:600;
@@ -202,10 +248,13 @@
 
 .overlay-actions .signup-btn{
   padding:10px 20px;
+  background: var(--accent-green);
+  color: #07140a;
 }
 
 @media (max-width: 1024px){
   .burger{ display:inline-flex; }
+  .mobile-theme-btn{ display:inline-flex; }
   /* hide desktop controls except burger on tablet and below */
   .accessibility .login-link,
   .accessibility .signup-btn,

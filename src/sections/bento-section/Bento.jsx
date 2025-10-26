@@ -7,7 +7,7 @@ const Chip = ({ icon, children }) => (
 
 const Bento = () => {
   return (
-    <section className="bento-section">
+    <section className="bento-section" id='features'>
       <h2 className="bento-title">Explore Our Feature</h2>
       <p className="bento-sub">Discover the powerful features that make our platform stand out</p>
 

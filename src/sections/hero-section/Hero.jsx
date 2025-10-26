@@ -3,7 +3,7 @@ import './Hero.css'
 
 const Hero = () => {
     return (
-        <div className="hero">
+        <div className="hero" id='home'>
             <div className="glow"></div>
             <h1 className="hero-title">Build the Future
                 with Web</h1>

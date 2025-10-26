@@ -3,7 +3,7 @@ import './Form.css'
 
 const Form = () => {
   return (
-    <section className="form-section">
+    <section className="form-section" id='contact'>
       <div className="form-left">
         <h2>Get in touch</h2>
         <p>Contact us for additional details or assistance.</p>

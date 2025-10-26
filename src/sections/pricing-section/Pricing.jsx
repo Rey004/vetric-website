@@ -3,7 +3,7 @@ import './Pricing.css'
 
 const Pricing = () => {
   return (
-    <div className="pricing-section">
+    <div className="pricing-section" id='pricing'>
       <h2 className="pricing-title">Pricing</h2>
       <p className="subtle" style={{textAlign:'center', marginTop:'6px'}}>Explore our pricing plans tailored to fit your needs.</p>
       <div className="pricing-toggle">
