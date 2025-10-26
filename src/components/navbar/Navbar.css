@@ -137,9 +137,12 @@
 @media (max-width: 1024px){
   /* tablet and below: hide center links and show burger */
   .navlinks{ display:none; }
-  .vetric-logo{ display:none; }
+  /* keep the vetric text/logo visible on mobile - scale it down to fit */
+  .vetric-logo{ display:inline-block; height:18px; opacity:0.98; }
   .logo-icon{ height:32px; width:32px; }
   .signup-btn{ padding:7px 12px; }
+  /* reduce navbar padding on mobile for a tighter header */
+  .navbar { padding: 0.8rem 0.6rem 0.8rem 1.5rem; }
 }
 
 /* hamburger (hidden on desktop) */
@@ -181,7 +184,8 @@
   position:fixed;
   inset:0;
   background: var(--overlay-backdrop, rgba(0,0,0,0.55));
-  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(9px) saturate(120%);
+  backdrop-filter: blur(9px) saturate(120%);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -204,6 +208,10 @@
   align-items:center;
   transition: transform 180ms ease, opacity 180ms ease;
   color: var(--overlay-text, var(--text));
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  /* ensure the inner surface is semi-transparent so the backdrop-filter can be seen */
+  will-change: backdrop-filter, transform, opacity;
 }
 
 .close-btn{

@@ -31,8 +31,9 @@
   --bento-line: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
   --footer-bg: rgba(26, 28, 41, 1);
   /* mobile overlay / menu */
-  --overlay-backdrop: rgba(0,0,0,0.55); /* backdrop behind overlay */
-  --overlay-inner-bg: rgba(7, 7, 10, 0.5); /* inner full-screen overlay surface */
+  --overlay-backdrop: rgba(0,0,0,0.45); /* backdrop behind overlay */
+  /* inner full-screen overlay surface - keep translucent so backdrop-filter shows through */
+  --overlay-inner-bg: rgba(7, 7, 10, 0.36);
   --overlay-text: rgba(255,255,255,0.95);
   --overlay-muted: rgba(255,255,255,0.68);
   --overlay-border: rgba(255,255,255,0.06);
@@ -60,7 +61,8 @@
   --footer-bg: rgb(255, 255, 255);
   /* overlay / menu overrides for light theme */
   --overlay-backdrop: rgba(0,0,0,0.06);
-  --overlay-inner-bg: rgba(255,255,255,0.5);
+  /* a bit more translucent on light theme too */
+  --overlay-inner-bg: rgba(255,255,255,0.36);
   --overlay-text: rgba(0,0,0,0.92);
   --overlay-muted: rgba(0,0,0,0.6);
   --overlay-border: rgba(0,0,0,0.06);
