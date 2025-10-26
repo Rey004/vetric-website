@@ -13,9 +13,23 @@
   --bg: rgba(7, 7, 10, 1);
   --text: #fff;
   --muted: rgba(255,255,255,0.65);
+  /* code block muted / comment color */
+  --code-muted: rgba(255,255,255,0.56);
   --muted-strong: rgba(255,255,255,0.85);
   --accent-green: rgba(150, 234, 99, 1); /* sign up accent */
-  --border: rgba(255,255,255,0.1);
+  --border: rgba(255, 255, 255, 0.153);
+  --bg-inverted: #ffffff;
+  /* surface / panels */
+  --surface: rgba(255,255,255,0.02);
+  /* inputs and form elements */
+  --input-bg: rgba(255,255,255,0.02);
+  --input-border: rgba(255,255,255,0.04);
+  /* primary button (submit) - dark theme shows a white button */
+  --btn-bg: #ffffff;
+  --btn-text: var(--bg);
+  /* subtle helpers */
+  --bento-line: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  --footer-bg: rgba(26, 28, 41, 1);
 }
 
 .light {
@@ -23,9 +37,21 @@
   --bg: #fff;
   --text: #000;
   --muted: rgba(0,0,0,0.65);
+  --code-muted: rgba(0,0,0,0.54);
   --muted-strong: rgba(0,0,0,0.85);
   --accent-green: rgba(150, 234, 99, 1);
-  --border: rgba(0,0,0,0.1);
+  --border: rgba(0, 0, 0, 0.422);
+  --bg-inverted: rgba(7, 7, 10, 1);
+  /* surface / panels for light theme */
+  --surface: rgba(0,0,0,0.03);
+  --input-bg: rgba(0,0,0,0.03);
+  --input-border: rgba(0,0,0,0.06);
+  /* primary button for light theme (dark pill with white text) */
+  --btn-bg: rgba(7,7,10,1);
+  --btn-text: #fff;
+  /* bento svg line for light theme */
+  --bento-line: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+  --footer-bg: rgb(255, 255, 255);
 }
 
 *{

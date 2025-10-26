@@ -3,6 +3,38 @@
 	padding: 4.5rem 1.5rem;
 	background: var(--bg);
 	color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.pricing-toggle{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 0.5rem 0.5rem 0.5rem 1rem ;
+    background: black;
+}
+
+.pricing-toggle .toggle-label{
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.85);
+}
+
+.pricing-toggle .toggle-switch{
+    font-size: 0.8rem;
+    color: var(--text);
+    background: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    color: black;
 }
 
 .pricing-title{
@@ -24,7 +56,7 @@
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
 	max-width: 1160px;
-	margin: 1.2rem auto 2.4rem auto;
+	/* margin: 1.2rem auto 2.4rem auto; */
 	align-items: start;
 }
 
@@ -38,7 +70,6 @@
 }
 
 .card-inner{
-	background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
 	border: 1px solid var(--border);
 	border-radius: 11px; /* slightly inset so it fits inside outer shell */
 	padding: 1.6rem;
@@ -46,6 +77,23 @@
 	display:flex;
 	flex-direction:column;
 	gap: 1rem;
+	position: relative; /* ensure z-index takes effect and sits above any absolute gradient border */
+	z-index: 2;
+    background-color: var(--bg);
+    overflow: hidden;
+}
+
+.card-inner .glow{
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: -40%;
+    left: 10%;
+    z-index: 1;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none; /* avoid intercepting clicks */
+    background: radial-gradient(var(--accent-green),transparent);
 }
 
 .pricing-plan{
@@ -67,7 +115,7 @@
 	align-self:flex-start;
 	background: transparent;
 	color: var(--text);
-	border: 1px solid rgba(255,255,255,0.06);
+	border: 1px solid rgba(255, 255, 255, 0.33);
 	padding: 10px 14px;
 	border-radius: 9px;
 	cursor:pointer;
@@ -79,13 +127,26 @@
 
 /* highlight middle card (Pro) */
 .pricing-container .pricing-card:nth-child(2){
-	/* gradient border on the shell by layering backgrounds (border-box) so it clips to radius */
 	position: relative;
-	border-radius: 12px;
-	background:
-		linear-gradient(180deg, rgba(255,255,255,0.02), transparent) padding-box,
-		linear-gradient(90deg, rgba(150,234,99,0.22), rgba(24,96,40,0.09)) border-box;
-	overflow: hidden;
+}
+
+.card-inner .description{
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.pricing-container .pricing-card:nth-child(2) .border{
+	position: absolute;
+    top: 0.5px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none; /* avoid intercepting clicks */
+	background: linear-gradient(to bottom, rgba(151, 234, 99, 0.462), rgba(24,96,40,0.09));
+    border-radius: 12px;
 }
 
 .pricing-container .pricing-card:nth-child(2) .card-inner .pricing-button{
@@ -112,8 +173,8 @@
 	display:flex;
 	flex-direction:column;
 	gap:0.6rem;
-	color:var(--muted);
-	font-size:0.95rem;
+	color:var(--muted-strong);
+	font-size:0.9rem;
 }
 
 .pricing-features li{
@@ -122,21 +183,70 @@
 
 /* CTA bar below pricing */
 .pricing-cta{
+	position: relative;
+}
+.cta-content{
+	position: relative; /* allow absolute children inside (the .border) and make z-index work */
 	max-width: 1160px;
 	margin: 2rem auto 0 auto;
-	background: linear-gradient(90deg, rgba(150,234,99,0.06), rgba(255,255,255,0.02));
-	border: 1px solid var(--border);
-	padding: 1.4rem 1.4rem;
-	border-radius: 12px;
 	display:flex;
 	align-items:center;
 	justify-content:space-between;
 	gap: 1rem;
 }
+.cta-content .border{
+	position: absolute;
+    align-self: center;
+	inset: 0; /* fill the CTA container area */
+    height: 101%;
+    width: 100.1%;
+    top: -1px;
+    left: -0.5px;
+	z-index: 1;
+	pointer-events: none; /* avoid intercepting clicks */
+	background: linear-gradient(90deg, rgba(151, 234, 99, 0.67), rgba(24, 96, 40, 0.242), rgba(151, 234, 99, 0.67), rgba(24, 96, 40, 0.242));
+	border-radius: 12px;
+}
+.cta-inner{
+	position: relative;
+	z-index: 2;
+	background: var(--bg);
+	border: 1px solid var(--border);
+	padding: 1.4rem 3rem;
+	border-radius: 11px; /* slightly inset compared to the overlay */
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap: 1rem;
+	width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
 
-.pricing-cta h3{ margin:0; font-family: blanc, manrope; font-size:1.15rem }
-.pricing-cta p{ margin:0; color:var(--muted) }
-.pricing-cta .cta-btn{ background:var(--accent-green); color:#07140a; padding:8px 14px; border-radius:8px; border:none }
+.cta-inner .glow{
+    position: absolute;
+    width: 10%;
+    height: 200%;
+    top: -50%;
+    left: 60%;
+    right: 0;
+    z-index: 1;
+    filter: blur(80px);
+    opacity: 0.6;
+    pointer-events: none; /* avoid intercepting clicks */
+    background: linear-gradient(to bottom,var(--accent-green),transparent);
+    transform: rotate(-40deg);
+}
+
+.cta-text{
+    display:flex;
+    flex-direction:column;
+    gap:2.5rem;
+}
+
+.pricing-cta h3{ margin:0; font-family: blanc, manrope; font-size:2rem }
+.pricing-cta p{ margin:0; color:var(--muted-strong) }
+.pricing-cta .cta-btn{ background:var(--accent-green); color:#07140a; padding:0.8rem 2rem; border-radius:8px; border:none; cursor:pointer; font-size:0.8rem; font-weight:600 }
 
 /* Responsive */
 @media (max-width: 900px){
@@ -146,6 +256,10 @@
 @media (max-width: 560px){
 	.pricing-container{ grid-template-columns: 1fr; }
 	.pricing-cta{ flex-direction:column; align-items:flex-start }
-	.pricing-cta .cta-btn{ align-self:flex-end }
-}
+	.pricing-cta .cta-btn{ align-self:flex-end; width: 100%; }
 
+    .cta-inner{
+        flex-direction: column;
+        padding: 2rem 2rem;
+    }
+}

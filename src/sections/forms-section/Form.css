@@ -1,0 +1,92 @@
+/* Contact form section */
+.form-section {
+	padding: 4.5rem 1.5rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 480px;
+	gap: 2rem;
+	align-items: start;
+	color: var(--text);
+}
+
+.form-left h2 {
+	font-family: blanc, manrope;
+	font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+	margin: 0 0 1rem;
+}
+
+.form-left p {
+	color: var(--muted);
+	margin: 0 0 1rem;
+	max-width: 420px;
+}
+
+.form-right {
+	align-self: start;
+}
+
+.contact-form label {
+	display: block;
+	margin-bottom: 1rem;
+}
+
+.label-text {
+	display: block;
+	font-size: 0.85rem;
+	color: var(--muted);
+	margin-bottom: 0.5rem;
+}
+
+.form-input {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid var(--border);
+	padding: 12px 14px;
+	border-radius: 8px;
+	color: var(--text);
+	outline: none;
+	font-size: 0.95rem;
+	box-sizing: border-box;
+}
+
+.form-input::placeholder {
+	color: var(--muted);
+}
+
+.form-input.textarea {
+	min-height: 140px;
+	resize: none;
+	padding-top: 12px;
+}
+
+.form-input:focus {
+	border-color: rgba(78, 201, 176, 0.9);
+	box-shadow: 0 6px 20px rgba(78, 201, 176, 0.06);
+}
+
+.form-actions {
+	margin-top: 0.8rem;
+}
+
+.submit-btn {
+	width: 100%;
+	background: var(--bg-inverted);
+	color: var(--bg);
+	border-radius: 8px;
+	padding: 10px 14px;
+	border: none;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+@media (max-width: 900px) {
+	.form-section {
+		grid-template-columns: 1fr;
+	}
+
+	.form-right {
+		margin-top: 1.2rem;
+	}
+}
+

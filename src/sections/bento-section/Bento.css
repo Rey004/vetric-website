@@ -1,0 +1,264 @@
+/* Bento section */
+.bento-section {
+    padding: 4.5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--text);
+}
+
+.bento-title {
+    text-align: center;
+    font-family: blanc, manrope;
+    font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+    margin-bottom: 0.6rem;
+}
+
+.bento-sub {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.bento-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: stretch;
+    /* keep both large cards same height */
+}
+
+.bento-card.large {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    /* consistent large card height - change this value to tune */
+    --bento-large-height: 320px;
+    min-height: var(--bento-large-height);
+}
+
+.bento-card .overlay {
+    position: absolute;
+    width: 10%;
+    height: 200%;
+    top: -50%;
+    left: 60%;
+    right: 0;
+    z-index: 1;
+    filter: blur(80px);
+    opacity: 0.7;
+    pointer-events: none;
+    /* avoid intercepting clicks */
+    background: linear-gradient(to bottom, var(--accent-green), transparent);
+    transform: rotate(40deg);
+}
+
+.bento-card .card-inner {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 1.6rem;
+    min-height: 220px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bento-card h3,
+.bento-card h4 {
+    color: var(--text);
+    margin: 0
+}
+
+.bento-card .muted {
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+    align-items: center;
+}
+
+.chips.vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    /* prevent vertical stacked chips from stretching full width */
+}
+
+.chip {
+    display: flex;
+    /* size to content and allow multiple chips per row */
+    align-items: center;
+    gap: 0.7rem;
+    white-space: nowrap;
+    background: var(--bg);
+    color: var(--muted-strong);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    border: 1px solid var(--border);
+}
+
+.cta-pill-wrap {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem;
+    z-index: 2;
+}
+
+.pill {
+    color: var(--text);
+    border: 2px solid var(--border);
+    padding: 1rem 2rem;
+    border-radius: 28px;
+    cursor: pointer;
+    background-color: var(--bg);
+    z-index: 3;
+    /* dark mode (default): subtle white inner shadow to give a soft inset highlight */
+    box-shadow: inset 0 6px 12px rgba(255, 255, 255, 0.06);
+    -webkit-box-shadow: inset 0 6px 12px rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+/* Light theme override: black inner shadow for light mode */
+.light .pill {
+    box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.08);
+    -webkit-box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.line {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 120%;
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 1.4rem;
+}
+
+.bento-small {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.bento-small .muted{
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.icon-circle{
+    width: 80%;
+    align-self: center;
+}
+
+.code-card .code-block {
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--muted-strong);
+    font-family: monospace;
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+    white-space: pre-wrap;
+}
+
+/* Syntax-like token colors (approximate VS Code theme) */
+.code-block .token.comment {
+    color: var(--code-muted);
+}
+
+.code-block .token.keyword {
+    color: #c586c0;
+}
+
+.code-block .token.type {
+    color: #4ec9b0;
+}
+
+.code-block .token.string {
+    color: #d19a66;
+}
+
+.code-block .token.number {
+    color: #b5cea8;
+}
+
+.code-block .token.function {
+    color: #dcdcaa;
+}
+
+.code-block .token.var {
+    color: #9cdcfe;
+}
+
+.code-block code {
+    display: block;
+}
+
+.icons-wrap {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.blend {
+    mix-blend-mode: difference;
+}
+
+@media (max-width: 900px) {
+    .bento-top {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .line {
+        top: 35%;
+    }
+}
+
+@media (max-width: 425px) {
+    .line{
+        top: 50%;
+    }
+
+    .pill {
+        font-size: 0.6rem;
+        gap: 0.5rem;
+    }
+    .mail {
+        width: 16px;
+        height: 16px;
+    }
+}

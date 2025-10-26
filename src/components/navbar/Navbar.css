@@ -24,6 +24,7 @@
 
 .vetric-logo{
   height:22px;
+  mix-blend-mode: difference;
 }
 
 .navlinks{
@@ -57,6 +58,10 @@
   text-decoration:none;
   font-size:14px;
   padding:6px 8px;
+}
+
+.globe{
+    mix-blend-mode: difference;
 }
 
 .signup-btn{
